@@ -1,4 +1,4 @@
-from ipanalyzer.parser import IPFinder
+from ipanalyzer.parser.parser import IPFinder
 import os
 
 
