@@ -1,7 +1,7 @@
 import re
 
 
-class IPFinder:
+class IpFinder:
 
     def __init__(self):
         self.pattern = re.compile(r'(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})')

@@ -1,4 +1,4 @@
-from ipanalyzer import IPFinder
+from ipanalyzer import IpFinder
 import os
 
 
@@ -7,19 +7,19 @@ EXAMPLES_DIR = os.path.join(os.path.dirname(
 
 
 def test_find_5000_ips():
-    parser = IPFinder()
+    parser = IpFinder()
     file_path = os.path.join(EXAMPLES_DIR, 'list_of_ips.txt')
     assert len(parser.find(file_path)) == 5000
 
 
 def test_file_with_no_ips():
-    parser = IPFinder()
+    parser = IpFinder()
     file_path = os.path.join(EXAMPLES_DIR, 'no_ips.txt')
     assert len(parser.find(file_path)) == 0
 
 
 def test_file_with_some_ips():
-    parser = IPFinder()
+    parser = IpFinder()
     ips_in_file = [
         '33.33.53.155',
         '186.167.42.67',
