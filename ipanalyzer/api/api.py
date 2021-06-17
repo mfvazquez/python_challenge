@@ -2,7 +2,7 @@ import requests
 
 
 class ApiIp:
-    
+
     def __init__(self):
         self.api_url = ''
 
