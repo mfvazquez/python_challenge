@@ -1,10 +1,9 @@
 import requests
 import os
 import json
+import tempfile
 
-
-CACHE_DIR = os.path.join(os.path.dirname(
-    os.path.realpath(__file__)), '.cache')
+CACHE_DIR = os.path.join(tempfile.gettempdir(), 'ipanalyzer-cache')
 
 
 class ApiIp:
@@ -33,10 +32,26 @@ class ApiIp:
             return output
 
     def __cache_lookup(self, ip):
+        """Searchs for `ip` data in the cache directory.
+        If the file exists, return its content. Otherwise
+        raise `FileNotFoundError`.
+
+        Args:
+            ip (str): The IP address.
+
+        Returns:
+            [dict]: A dictionary with the last request in cache.
+        """
         with open(os.path.join(CACHE_DIR, f'{self.api_name}_{ip}')) as cache_file:
             return json.load(cache_file)
 
     def __cache_store(self, ip, data):
+        """Stores the `ip` data in cache.
+
+        Args:
+            ip (str): The IP address.
+            data (dict): Data to store in a json file.
+        """
 
         if not os.path.isdir(CACHE_DIR):
             os.mkdir(CACHE_DIR)

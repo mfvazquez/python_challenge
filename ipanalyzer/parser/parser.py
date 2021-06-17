@@ -21,4 +21,6 @@ class IpFinder:
             while line:
                 ips.update(self.pattern.findall(line))
                 line = file.readline()
+        ips = list(ips)
+        ips.sort()
         return ips
