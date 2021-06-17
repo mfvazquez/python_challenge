@@ -13,7 +13,7 @@ class ApiIp:
         """ Returns the requests response in json format.
 
         Args:
-            ip (str): The IP address.
+            ip (str): A valid IP address.
 
         Returns:
             dict: The API response information.
