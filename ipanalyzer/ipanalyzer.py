@@ -49,6 +49,6 @@ class Processor:
 
         output = {}
         for i in range(len(self.processes)):
-            output[self.keys[i]] = self.processes[0].get(input_data)
+            output[self.keys[i]] = self.processes[i].get(input_data)
 
         return output
