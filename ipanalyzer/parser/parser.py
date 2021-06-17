@@ -10,7 +10,7 @@ class IPFinder:
         """ Returns a set of IP addresses found in the given file.
 
         Args:
-            filename (string): The file name to search for IP addresses.
+            filename (str): The file name to search for IP addresses.
 
         Returns:
             set: A set of IP addresses.
