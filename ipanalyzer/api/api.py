@@ -25,13 +25,13 @@ class ApiIp:
             dict: The API response information.
         """
         try:
-            return self.__cache_lookup(ip)
+            return self._cache_lookup(ip)
         except FileNotFoundError:
             output = requests.get(self.url_format(ip)).json()
-            self.__cache_store(ip, output)
+            self._cache_store(ip, output)
             return output
 
-    def __cache_lookup(self, ip):
+    def _cache_lookup(self, ip):
         """Searchs for `ip` data in the cache directory.
         If the file exists, return its content. Otherwise
         raise `FileNotFoundError`.
@@ -45,7 +45,7 @@ class ApiIp:
         with open(os.path.join(CACHE_DIR, f'{self.api_name}_{ip}')) as cache_file:
             return json.load(cache_file)
 
-    def __cache_store(self, ip, data):
+    def _cache_store(self, ip, data):
         """Stores the `ip` data in cache.
 
         Args:
