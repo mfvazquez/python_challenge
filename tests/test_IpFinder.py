@@ -1,5 +1,6 @@
 from ipanalyzer import IpFinder
 import os
+import pytest
 
 
 EXAMPLES_DIR = os.path.join(os.path.dirname(
@@ -29,3 +30,19 @@ def test_file_with_some_ips():
     file_path = os.path.join(EXAMPLES_DIR, 'some_ips.txt')
     result = parser.find(file_path)
     assert result.issubset(ips_in_file)
+
+
+def test_cache_empty():
+    parser = IpFinder()
+    content = "a sample content"
+    parser._cache_store(content, set())
+    output_data = parser._cache_lookup(content)
+    assert len(output_data) == 0
+
+def test_cache():
+    parser = IpFinder()
+    content = "a sample content 1.1.1.1 with two ips 0.1.2.3"
+    data = set(('1.1.1.1', '0.1.2.3'))
+    parser._cache_store(content, data)
+    output_data = parser._cache_lookup(content)
+    assert output_data == data
