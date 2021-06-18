@@ -26,7 +26,7 @@ pip install -r requirements.txt
 
 Run the following command with two arguments:
 
-```bash
+```bashrdap
 python ipanalyzer.py input.txt output.json
 ```
 
@@ -39,6 +39,29 @@ For example:
 
 ```bash
 python ipanalyzer.py list_of_ips.txt output.json
+```
+
+The file `output.json` has the following structure:
+
+```
+{
+  [IP]: 
+  {
+    "GeoIP": [geo_ip_data],
+    "RDAP": [RDAP_data]
+  },
+  ...
+}
+```
+
+The file content can be converted to a dictionary with the function `json.load`, as shown in the following example:
+
+```python
+import json
+  
+# Opening JSON file
+with open('output.json') as json_file:
+    data = json.load(json_file)
 ```
 
 ### ipanalyzer
