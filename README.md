@@ -14,7 +14,7 @@ requests
 
 Run the following commands:
 
-```
+```bash
 git clone https://github.com/mfvazquez/python_challenge.git
 cd python_challenge
 pip install -r requirements.txt
@@ -26,7 +26,7 @@ pip install -r requirements.txt
 
 Run the following command with two arguments:
 
-```
+```bash
 python ipanalyzer.py input.txt output.json
 ```
 
@@ -37,8 +37,50 @@ Where:
 
 For example:
 
-```
+```bash
 python ipanalyzer.py list_of_ips.txt output.json
+```
+
+### ipanalyzer
+
+Import the module `ipanalyzer` in your python code and use the function `ip_analysis` to process a file with IP addresses.
+See the script [ipanalyzer](https://github.com/mfvazquez/python_challenge/blob/readme/ipanalyzer.py) as example.
+
+### IpFinder
+
+To find IP addresses from a python script use an `IpFinder` object
+in your python code.
+
+```python
+from ipanalyzer import IpFinder
+
+
+ipfinder = IpFinder()
+ips = ipfinder.find('list_of_ips.txt')
+```
+
+### GeoIP
+
+To make a Geo IP lookup in your python code use a `GeoIP` object.
+
+```python
+from ipanalyzer import GeoIP
+
+
+geoip = GeoIP()
+geo_data = geoip.get('8.8.8.8')
+```
+
+### Rdap
+
+Similar to `GeoIP`, just create an `Rdap` object to make a RDAP lookup.
+
+```python
+from ipanalyzer import Rdap
+
+
+rdap = Rdap()
+rdap_data = rdap.get('8.8.8.8')
 ```
 
 ## Tests
@@ -55,7 +97,7 @@ pytest
 
 Install the requirements to run the tests, for this project run the following command:
 
-```
+```bash
 pip install -r test_requirements.txt
 ```
 
