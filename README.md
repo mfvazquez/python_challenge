@@ -139,4 +139,4 @@ For more information about running tests with pytest please visit its official [
 * Add an option to clear the cache. Otherwise it will increase its size over time.
 * Add an option to filter IP addresses.
 * Imeplement a frontend for the application.
-* Create a new class in charge of the read/write in the cache dir.
+* Create a new class that handles the read/write if the cache.
